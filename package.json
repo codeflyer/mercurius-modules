@@ -1,0 +1,77 @@
+{
+  "name": "mercurius-modules",
+  "version": "0.0.1",
+  "description": "A module system to organise mercurius modules",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "lib"
+  ],
+  "scripts": {
+    "lint": "npm run lint:standard && npm run lint:typescript",
+    "lint:fix": "standard --fix",
+    "lint:standard": "standard | snazzy",
+    "lint:typescript": "standard --parser @typescript-eslint/parser --plugin @typescript-eslint/eslint-plugin test/types/*.ts",
+    "example": "nodemon example/index.js",
+    "test": "npm run lint && npm run test:unit && npm run test:types",
+    "test:unit": "tap --jobs=1 --coverage-report=html test/*.js",
+    "test:types": "tsd",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mercurius-js/mercurius-federation"
+  },
+  "keywords": [
+    "mercurius"
+  ],
+  "author": "Davide Fiorello <davide@codeflyer.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mercurius-js/mercurius-federation/issues"
+  },
+  "homepage": "https://github.com/mercurius-js/mercurius-federation#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^17.2.0",
+    "@commitlint/config-conventional": "^17.2.0",
+    "@fastify/autoload": "5.5.0",
+    "@fastify/under-pressure": "8.1.0",
+    "@graphql-tools/load-files": "6.6.1",
+    "@graphql-tools/merge": "^8.3.12",
+    "@graphql-tools/schema": "9.0.10",
+    "@graphql-tools/utils": "^9.1.1",
+    "@typescript-eslint/eslint-plugin": "^5.43.0",
+    "@typescript-eslint/parser": "^5.43.0",
+    "close-with-grace": "1.1.0",
+    "env-schema": "5.1.1",
+    "fastify": "^4.9.2",
+    "fluent-json-schema": "4.0.0",
+    "graphql-tag": "^2.12.6",
+    "graphql-ws": "^5.11.2",
+    "husky": "^8.0.2",
+    "lint-staged": "^13.0.3",
+    "mercurius": "^11.3.0",
+    "mercurius-auth": "3.0.0",
+    "mercurius-validation": "3.0.0",
+    "mqemitter": "^5.0.0",
+    "nodemon": "2.0.20",
+    "snazzy": "^9.0.0",
+    "standard": "^17.0.0",
+    "tap": "16.3.0",
+    "tsd": "^0.24.1",
+    "ws": "^8.11.0"
+  },
+  "tsd": {
+    "directory": "test/types"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": "standard --cache --fix"
+  },
+  "dependencies": {
+    "@fastify/error": "^3.0.0",
+    "ajv": "8.11.2",
+    "graphql": "16.6.0"
+  }
+}

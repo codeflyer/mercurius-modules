@@ -1,0 +1,20 @@
+extend type Query {
+  getFilmList(input: FilmListInput): [Film]
+}
+
+input FilmListInput {
+  page: Int
+  resultPerPage: Int
+}
+
+type Film {
+  id: ID!
+  title: String!
+  description: String!
+  categories: [Category] @auth(requires: USER)
+}
+
+extend type Director @key(fields: "id"){
+  id: ID! @external
+  name: String
+}
